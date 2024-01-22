@@ -1,4 +1,11 @@
+import os
 from flask import Flask, request, jsonify
+from dotenv import load_dotenv
+
+load_dotenv()
+
+SERVICE_PORT = os.getenv("SERVICE_PORT", 8888)
+SERVICE_HOST = os.getenv("SERVICE_HOST", "localhost")
 
 app = Flask(__name__)
 
@@ -42,7 +49,7 @@ def multiply():
 
 
 def main():
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True, host=SERVICE_HOST, port=SERVICE_PORT)
 
 
 if __name__ == '__main__':

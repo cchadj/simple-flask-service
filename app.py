@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -46,6 +46,15 @@ def multiply():
         return jsonify({'result': result})
     except (KeyError, TypeError, ValueError):
         return jsonify({'error': 'Invalid input, please provide two numerical values.'})
+
+
+@app.route('/download/<path:filename>')
+def download_file(filename: str):
+    return send_from_directory(
+        "uploads",
+        filename,
+        as_attachment=False
+    )
 
 
 def main():

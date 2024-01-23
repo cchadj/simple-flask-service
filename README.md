@@ -20,6 +20,7 @@ Dependencies:
     ```bash
     python app.py
     ```
+4. Access the service at http://localhost:8888
 
 ## Installation & Running with Docker
 
@@ -36,3 +37,16 @@ Dependencies:
     ```bash
         docker run -p 8888:8888 simple-flask-service
     ```
+4. Access the service at http://localhost:8888
+
+## Installation & Running with Docker Compose
+1. Configure environment variables. \
+   Copy `.env.docker` file to `.env`
+    ```bash
+    cp .env.docker .env
+    ```
+2. Build and Run with Docker Compose
+    ```bash
+    docker-compose up --build
+    ```
+3. Access the service at http://localhost:8888

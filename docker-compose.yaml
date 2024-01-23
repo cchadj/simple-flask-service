@@ -1,0 +1,9 @@
+version: "3.0"
+services:
+  web:
+    build: .
+    ports:
+      - "${HOST_SERVICE_PORT:-$SERVICE_PORT}:${SERVICE_PORT}"
+    volumes:
+      - .:/usr/src/app
+    command: python app.py
